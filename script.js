@@ -20,6 +20,12 @@ window.addEventListener("keypress", function (e) {
 
 
 function clearList() {
+    document.getElementById("done_list").innerHTML = "";
+    localStorage.removeItem("tasks");
+}
+
+function clearAll() {
+    document.getElementById("done_list").innerHTML = "";
     document.getElementById("list").innerHTML = "";
     localStorage.removeItem("tasks");
 }
@@ -47,6 +53,20 @@ function attachRemoveListeners() {
         tasks[i].addEventListener("click", function () {
             this.remove();
             saveTasks();
+            document.getElementById("done_list").innerHTML += '<li class="p-2 bg-[#7e8e65]" id="' +'">' + this.innerHTML + "</li>";
+            addDoneBack();
+        });
+    }
+}
+
+function addDoneBack() {
+    var tasks = document.getElementById("done_list").getElementsByTagName("li");
+    for (var i = 0; i < tasks.length; i++) {
+        tasks[i].addEventListener("click", function () {
+            this.remove();
+            saveTasks();
+            document.getElementById("list").innerHTML += '<li class="p-2 hover:bg-gray-300" id="' +'">' + this.innerHTML + "</li>";
+            attachRemoveListeners();
         });
     }
 }

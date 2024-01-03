@@ -9,7 +9,7 @@
       :root {
         --bg-color: #475c6c;
         --text-color: #f7efd2;
-        --content-color: #8a8583;
+        --content-color: #808080;
         --border-color: #cd8b62;
       }
       body {
@@ -61,15 +61,22 @@
         class="content-color text-[1.2rem] rounded-lg border"
         id="task">
         <ul id="list" class="text-center text-[1.5rem]"></ul>
+        <ul id="done_list" class="text-center text-[1.5rem]"></ul>
       </div>
 
       <div class="flex justify-center pt-3">
         <button
           id="clear"
-          class="border-2 rounded-lg w-[18%] p-2 hover:bg-gray-400"
+          class="border-2 rounded-lg w-[18%] p-2 hover:bg-gray-400 mx-3"
           onclick="clearList()">
           Clear list
         </button>
+        <button
+        id="clear"
+        class="border-2 rounded-lg w-[18%] p-2 hover:bg-gray-400 mx-3"
+        onclick="clearAll()">
+        Clear all
+      </button>
       </div>
     </div>
     <div class="fixed justify-end bottom-0 right-0 p-4">
